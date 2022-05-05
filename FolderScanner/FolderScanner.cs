@@ -61,6 +61,8 @@ namespace FolderScanner
             if (File.Exists(filename)) File.Delete(filename);
             StreamWriter fs = File.CreateText(filename);
             fs.Write(toprint);
+            fs.Flush();
+            fs.Dispose();
             if (matches.Count <= 16)
             {
                 Console.WriteLine(toprint + "\nYou can find a complete list on "+filename+".");
